@@ -1,0 +1,21 @@
+﻿@model RestaurantRater116.Models.Restaurant
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+@if (ViewData["Error"] as string != string.Empty)
+{
+    <h1 class="text-center">@ViewData["Error"]</h1>
+}
+
+<form method="POST" action="/Restaurant/Create">
+    @Html.AntiForgeryToken()
+    <label>Name</label>
+    <input name="Name" type="text" class="form-control" value="@Model.Name" />
+    <label>Rating</label>
+    <input name="Rating" type="number" class="form-control" value="@Model.Rating" />
+
+    <button type="submit" class="btn btn-primary btn-block">Create Restaurant</button>
+</form>

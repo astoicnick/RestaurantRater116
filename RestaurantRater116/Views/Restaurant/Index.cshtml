@@ -1,0 +1,35 @@
+﻿@model IEnumerable<RestaurantRater116.Models.Restaurant>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h1 class="text-center">Restaurants</h1>
+<a href="/Restaurant/Create" class="btn btn-success">
+    Create a Restauarant
+</a>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Rating</th>
+            <th>Links</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var restaurant in Model)
+        {
+        <tr>
+            <td>@restaurant.RestaurantId</td>
+            <td>@restaurant.Name</td>
+            <td>@restaurant.Rating</td>
+            <td>
+                <a href="/Restaurant/Details?id=@restaurant.RestaurantId">
+                    Details
+                </a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

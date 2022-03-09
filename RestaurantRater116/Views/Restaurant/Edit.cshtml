@@ -1,0 +1,24 @@
+﻿@model RestaurantRater116.Models.Restaurant
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+@if (ViewData["Error"] as string != string.Empty)
+{
+    <h3 class="text-center">@ViewData["Error"]</h3>
+}
+
+<form action="/restaurant/edit/@Model.RestaurantId" method="post">
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.RestaurantId)
+
+    @Html.LabelFor(model => model.Name)
+    @Html.EditorFor(model => model.Name, new { @class = "form-control" })
+
+    @Html.LabelFor(model => model.Rating)
+    @Html.EditorFor(model => model.Rating, new { @class = "form-control" })
+
+    <button type="submit">Edit Restaurant</button>
+</form>
